@@ -13,7 +13,7 @@ class CreditCardsDB {
       join(await getDatabasesPath(), 'cards_wallet.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE $tableName (id INTEGER AUTOINCREMENT PRIMARY KEY, name TEXT, number TEXT)",
+          "CREATE TABLE $tableName (id INTEGER PRIMARY KEY, name TEXT, number TEXT)",
         );
       },
       version: 1,
@@ -42,10 +42,11 @@ class CreditCardsDB {
   }
 
   Future<void> deleteCards(List<num> ids) async {
-    return await db.delete(
+    final idsString = ids.join(', ');
+    return db.delete(
       tableName,
-      where: "id IN ?",
-      whereArgs: [ids],
+      where: "id = ?",
+      whereArgs: ids,
     );
   }
 

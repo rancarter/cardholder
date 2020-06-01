@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
 
         return Scaffold(
-          appBar: AppBar(title: Text('My wallet'), actions: buildActions()),
+          appBar: AppBar(title: Text('Кредитные карты'), actions: buildActions()),
           body: CardList(
             cards: creditCardList.cards,
             isEditMode: isEditMode,
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               Navigator.pushNamed(context, '/create-card');
             },
-            tooltip: 'Add credit card',
+            tooltip: 'Добавить карту',
             child: Icon(Icons.add, size: 30.0),
           ),
         );

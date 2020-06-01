@@ -56,6 +56,7 @@ class CreditCardsModel extends ChangeNotifier {
       'number': number,
     });
 
+    print(id);
     cards.add(CreditCard(id, name, number));
 
     notifyListeners();

@@ -50,7 +50,7 @@ class _CardFormState extends State<CardForm> {
             key: _formKey,
             child: Column(children: <Widget>[
               TextFormField(
-                decoration: InputDecoration(labelText: 'Card name'),
+                decoration: InputDecoration(labelText: 'Имя карты'),
                 initialValue: name,
                 onChanged: (value) {
                   setState(() {
@@ -59,7 +59,7 @@ class _CardFormState extends State<CardForm> {
                 },
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Required';
+                    return 'Обязательное поле';
                   }
 
                   return null;
@@ -69,15 +69,15 @@ class _CardFormState extends State<CardForm> {
               TextFormField(
                 maxLength: 16,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(labelText: 'Card number'),
+                decoration: InputDecoration(labelText: 'Номер карты'),
                 initialValue: number,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Required';
+                    return 'Обязательное поле';
                   }
 
                   if (value.length < 16) {
-                    return 'Invalid';
+                    return 'Неправильный номер карты';
                   }
 
                   return null;
